@@ -3,7 +3,7 @@ TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
+$(call inherit-product, vendor/aicp/configs/common.mk)
 
 $(call inherit-product, device/google/sprout/full_sprout.mk)
 
