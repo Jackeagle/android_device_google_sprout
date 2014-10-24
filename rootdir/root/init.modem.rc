@@ -31,9 +31,9 @@ service muxreport-daemon /system/bin/muxreport
 service ril-daemon-mtk /system/bin/mtkrild
     class core
     socket rild stream 660 root radio
+    socket rild1 stream 660 root radio
     socket rild2 stream 660 root radio
     socket rild3 stream 660 root radio
-    socket rild4 stream 660 root radio
     socket rild-debug stream 660 radio system
     socket rild-oem stream 660 radio system
     socket rild-mtk-ut stream 660 radio net_bt
@@ -63,12 +63,6 @@ service ccci_mdinit /system/bin/ccci_mdinit 0
     user system
     group radio system
     class core
-
-service ccci_rpcd /system/bin/ccci_rpcd
-    user radio
-    group radio system
-    class core
-    oneshot
 
 service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
     user root
