@@ -18,7 +18,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 2147483648
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 BOARD_KERNEL_CMDLINE :=
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x04000000 --tags_offset 0x00000100
 BOARD_KERNEL_BASE := 0x80000000
@@ -29,7 +28,9 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/google/sprout/bluetooth
 
 
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/root/fstab.sprout
-TARGET_PREBUILT_RECOVERY_KERNEL := $(LOCAL_PATH)/kernel
+
+TARGET_KERNEL_SOURCE := kernel/google/sprout
+TARGET_KERNEL_CONFIG := cyanogenmod_sprout_defconfig
 
 BOARD_RECOVERY_SWIPE := true
 
@@ -64,6 +65,8 @@ TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
+
+BOARD_RIL_CLASS := ../../../device/google/sprout/ril/
 
 BOARD_SEPOLICY_DIRS += \
     device/google/sprout/sepolicy
